@@ -1,11 +1,5 @@
 import express from "express";
-import axios from "axios";
-import dotenv from "dotenv";
 import weatherJoke from "./routes/weatherRoute.js";
-
-//configuring the dotenv to allow key values to be use from the env
-dotenv.config();
-
 
 const app = express();
 const port = 3000;

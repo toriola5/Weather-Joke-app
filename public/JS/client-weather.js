@@ -12,10 +12,27 @@ window.addEventListener("load", ()=>{
 })
 
 //function to show and hide the second part joke and also change the message in the button
-function toggleButtion (){
-const isHidden = el(".response").style.display === "none";
-el(".response").style.display = isHidden ? "block" : "none";
-$("show-joke").textContent = isHidden ? "Hide Joke" : "Show Joke";
+// function toggleButtion (){
+// const isHidden = el(".response").style.display === "none";
+// // el(".response").style.display = isHidden ? "block" : "none";
+// // $("show-joke").textContent = isHidden ? "Hide Joke" : "Show Joke";
+
+
+// if(isHidden){
+//     el(".response").classList.add("show");
+// }else{
+//     el(".response").classList.remove("show");
+// }
+// }
+
+function toggleButton() {
+  const response = el(".response");
+  response.classList.toggle("show");
+
+  // Update button text
+  $("show-joke").textContent = response.classList.contains("show")
+    ? "Hide Joke"
+    : "Show Joke";
 }
 
 //function that runs if get location was sucessful
@@ -51,9 +68,9 @@ async function success(position) {
 
 $("weather-info").innerHTML = html;
 $("joke").innerHTML = htmlJoke;
-el(".response").style.display = "none";
+// el(".response").style.display = "none";
 $("show-joke").addEventListener("click", () => {
-    toggleButtion();
+    toggleButton();
 });
 }
 
@@ -71,7 +88,8 @@ async function nextJoke(){
     const htmlJoke = `<p class="first-joke"> ${setup} </p> 
     <p class="response">${delivery}</p>`;
     $("joke").innerHTML = htmlJoke;
-    toggleButtion();
+    el(".response").classList.toggle("show");
+    toggleButton();
 }
 
 //click event listener that actiaite the function nextJoke

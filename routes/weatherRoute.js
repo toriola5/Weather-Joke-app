@@ -8,6 +8,7 @@ const router = express.Router();
 const url = "https://api.openweathermap.org/data/2.5/weather";
 const key = process.env.OPENWEATHER_KEY;
 
+//gets the weather and the joke when the page lunches the first time
 router.post("/get-weather", async (req ,res)=>{
         const {lat , lon} = req.body;
 try{
@@ -31,6 +32,7 @@ try{
 }
 })
 
+//get the joke when the the next joke buttion is pressed
 router.get("/get-joke", async (req, res)=>{
 
 try{
