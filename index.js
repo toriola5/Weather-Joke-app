@@ -14,7 +14,7 @@ app.get("/" , (req , res)=>{
 })
 
 //post route to provide weahter details on loading the page
-app.use("/" , weatherJoke)
+app.use("/" ,  weatherJoke);
 
 app.listen(port , ()=>{
     console.log(`server started at port ${port}`);  
